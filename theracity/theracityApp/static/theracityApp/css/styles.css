@@ -1,0 +1,23 @@
+body {
+    background-color: #FFF78A;
+}
+
+h1 {
+    color: #FFAD84;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3rem;
+    text-align: center;
+}
+
+p {
+    color: saddlebrown;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+span {
+    background-color: #FFC47E;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+}
