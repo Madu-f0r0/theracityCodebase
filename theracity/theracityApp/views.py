@@ -59,7 +59,7 @@ def closest_pharmacies(request):
     )
 
     # Serialize the results if needed
-    serialized_pharmacies = [{'name': pharmacy.name, 'distance': pharmacy.distance.m} for pharmacy in closest_pharmacies]
+    serialized_pharmacies = [{'name': pharmacy.name, 'distance': pharmacy.distance.m, 'id': pharmacy.id} for pharmacy in closest_pharmacies]
 
     # Return a JSON response containing the serialized data
     return JsonResponse({'closest_pharmacies': serialized_pharmacies})
