@@ -1,0 +1,7 @@
+To get Django's gis features working:
+sudo apt-get update
+sudo apt-get install libgeos-dev
+sudo apt-get install libgdal-dev
+
+
+'django.contrib.gis.middleware.GeoIPMiddleware',

@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.gis.db import models as gismodels
+
 
 # Create your models here.
 class Pharmacy(models.Model):
@@ -6,8 +8,7 @@ class Pharmacy(models.Model):
     password = models.CharField(max_length=45)
     pharmacy_name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
-    longitude = models.FloatField()
-    latitude = models.FloatField()
+    location = gismodels.PointField()
 
 
 class Medicine(models.Model):
@@ -21,3 +22,4 @@ class Stock(models.Model):
     medicine = models.ForeignKey('Medicine', on_delete=models.CASCADE) 
     amount = models.PositiveIntegerField(null=True)
     price = models.PositiveIntegerField(null=True)
+    available = models.CharField(max_length=3)

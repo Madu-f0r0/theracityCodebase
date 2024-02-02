@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheraCity Homepage</title> 
+    {% load static %}
+    <!-- {% csrf_token %} -->
+    <link rel="stylesheet" href="{% static 'theracityApp/css/homepage.css' %}">
+</head>
+<body>
+    <header>
+        <a class="header_item">About us</a>
+        <a class="header_item">Search</a>
+        <button class="header_item" id="signInBtn">Sign in</button>
+    </header>
+    <div class="center_body">
+        <p>Welcome!</p>
+    </div>
+    <div class="location">
+        <p>We would like to use your location to optimize your search responses.</p>
+        <p>Allow us use your location?</p>
+        <button id="yesBtn">Yes</button>
+        <button id="noBtn">No</button>
+    </div>
+    
+    <script>
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Check if the cookie name matches the desired name
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var locationSection = document.getElementById('locationSection');
+            var yesBtn = document.getElementById('yesBtn');
+            var noBtn = document.getElementById('noBtn');
+            var signInBtn = document.getElementById('signInBtn');
+
+            yesBtn.addEventListener('click', function() {
+                // Check if geolocation is supported
+                if ("geolocation" in navigator) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        // Send the location to the server-side (replace with your actual endpoint)
+                        var latitude = position.coords.latitude;
+                        var longitude = position.coords.longitude;
+                        console.log(`CSRF token is ${getCookie('csrftoken')}`);
+
+                        // Example: sending the location to the server using fetch
+                        fetch('/user_location/', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': getCookie('csrftoken'),
+                            },
+                            body: JSON.stringify({ latitude: latitude, longitude: longitude }),
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Handle the response from the server if needed
+                            console.log(data);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    }, function(error) {
+                        console.error('Error getting location:', error.message);
+                    });
+                } else {
+                    console.error('Geolocation is not supported by your browser');
+                }
+            });
+
+            noBtn.addEventListener('click', function() {
+                // Handle the case when the user clicks "No"
+                console.log('User denied location access');
+            });
+
+            // Optionally, you can also handle the Sign In button
+            signInBtn.addEventListener('click', function() {
+                // Handle the Sign In button click
+                console.log('Sign in button clicked');
+                // You may want to show the location section here, or redirect to a sign-in page.
+                /* locationSection.style.display = 'block'; */
+            });
+        });
+    </script>
+</body>
+</html>
