@@ -8,6 +8,8 @@ class Pharmacy(models.Model):
     password = models.CharField(max_length=45)
     pharmacy_name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
+    longitude = models.FloatField()
+    latitude = models.FloatField()
     location = gismodels.PointField()
 
 

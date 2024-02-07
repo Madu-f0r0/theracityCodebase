@@ -57,7 +57,7 @@
                         console.log(`CSRF token is ${getCookie('csrftoken')}`);
 
                         // Example: sending the location to the server using fetch
-                        fetch('/user_location/', {
+                        fetch('/user/location/', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
