@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheraCity Pharmaceutical Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'theracityApp/css/style.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!----Navigation ------>
+
+    <nav>
+        <img src="{% static 'theracityApp/img/Logo.png' %}" alt="TheraCity logo">
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="navigation">
+            <ul>
+                <i id="menu-close" class="fa fa-times"></i>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'about_us' %}">About Us</a></li>
+                <li>
+                    <a class="active" href="{% url 'pharmacy' %}">Pharmacy Stores</a>
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="">Search Pharmacy</a></li>
+                            <li><a href="">Search Store</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Contact Us</a></li>
+            </ul>
+            <i id="menu-btn" class="fa fa-bars"></i>
+        </div>
+    </nav>
+
+    <!---Home--->
+    <section id="pharmacy-home">
+        <h2>Explore Our Online Pharmacy Stores</h2>
+    </section>
+
+    <!-----Services----->
+    <section id="services">
+        <h1>Our Services</h2>
+        <p>Discover a wide network of reputable pharmacy stores right in your neighborhood with TheraCity. Our platform connects you to a variety of pharmacies, ensuring accessibility to essential medications and healthcare products</p>
+        <div class="ser-base">
+            <div class="ser-box">
+                <i class="fa fa-medkit"></i>
+                <h3>Medical Services</h3>
+                <p>Our platform offers comprehensive access to vital healthcare services provided by local pharmacies. From prescription medications to over-the-counter remedies, our user-friendly interface allows you to discover detailed information about each pharmacy's location, operating hours, available services, and customer reviews. With TheraCity, navigating the healthcare landscape is simplified, ensuring a seamless experience in locating and ordering from nearby pharmacies. Trust us to provide a convenient and reliable solution for all your pharmaceutical needs.</p>
+            </div>
+            <div class="ser-box">
+                <i class="fa fa-h-square"></i>
+                <h3>Products</h3>
+                <p>Discover an extensive range of high-quality healthcare products available through our platform. From essential medications to wellness essentials, we offer a diverse selection to cater to your specific needs. With TheraCity, you can browse through our curated list of pharmacies to find the products you require, ensuring access to vital healthcare items with just a few clicks. Experience convenience and peace of mind as you explore our wide array of pharmaceutical offerings.</p>
+            </div>
+            <div class="ser-box">
+                <i class="fa fa-ambulance"></i>
+                <h3>Swift Deliveries</h3>
+                <p>At TheraCity, we understand the importance of timely access to healthcare products. That's why we prioritize swift and efficient deliveries to ensure that your orders reach you promptly. With our dedicated logistics network, we guarantee fast and reliable delivery services, bringing your essential medications and wellness products right to your doorstep. Experience the convenience of hassle-free deliveries with TheraCity and enjoy peace of mind knowing that your healthcare needs are in safe hands.</p>
+            </div>
+        </div>
+    </section>
+
+    <!----Products---->
+    <section id="products">
+        <h1>Popular Orders</h1>
+        <p></p>
+        <div class="product-box">
+            <div class="product">
+                <img src="{% static 'theracityApp/img/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg' %}" alt="">
+                <div class="details">
+                <span> Updated 2/5/24</span>
+                <h6>Paracetamol</h6>
+                <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(200)</span>
+                </div>
+            </div>
+                <div class="cost">
+                    $15
+                </div>
+            </div>
+            <div class="product">
+                <img src="{% static 'theracityApp/img/brett-jordan--eFPTYvfMxY-unsplash.jpg' %}" alt="">
+                <div class="details">
+                    <span> Updated 2/5/24</span>
+                    <h6>Amoxicilin</h6>
+                    <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(200)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    $15
+                </div>
+            </div>
+            <div class="product">
+                <img src="{% static 'theracityApp/img/melany-tuinfosalud-com-iA3bAZsR4o4-unsplash.jpg' %}" alt="">
+                <div class="details">
+                    <span> Updated 2/5/24</span>
+                    <h6>Paracetamol</h6>
+                    <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(200)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    $15
+                </div>
+            </div>
+            <div class="product">
+                <img src="{% static 'theracityApp/img/melany-tuinfosalud-com-sCsVWSryy3o-unsplash.jpg' %}" alt="">
+                <div class="details">
+                    <span> Updated 2/5/24</span>
+                    <h6>Paracetamol</h6>
+                    <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(200)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    $15
+                </div>
+            </div>
+            <div class="product">
+                <img src="{% static 'theracityApp/img/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg' %}" alt="">
+                <div class="details">
+                    <span> Updated 2/5/24</span>
+                    <h6>Paracetamol</h6>
+                    <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(200)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    $15
+                </div>
+            </div>
+            <div class="product">
+                <img src="{% static 'theracityApp/img/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg' %}" alt="">
+                <div class="details">
+                    <span> Updated 2/5/24</span>
+                    <h6>Paracetamol</h6>
+                    <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(200)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    $15
+                </div>
+            </div>
+            <div class="product">
+                <img src="{% static 'theracityApp/img/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg' %}" alt="">
+                <div class="details">
+                    <span> Updated 2/5/24</span>
+                    <h6>Paracetamol</h6>
+                    <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(200)</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    $15
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer>
+  <div class="footer-col">
+    <h3>Customer Service</h3>
+    <li>FAQ</li>
+    <li>Customer Feedback</li>
+    <li>Return & Exchange</li>
+    <li>Store Locator</li>
+    <li>Order Information</li>
+    <li>Get in touch</li>
+  </div>
+  <div class="footer-col">
+    <h3>About Us</h3>
+    <li>Services</li>
+    <li>License & Agreement</li>
+  </div>
+  <div class="footer-col">
+    <h3>Contact Us</h3>
+    <li>Email: example@theracity.com</li>
+    <li>Phone: +244************</li>
+    <li>LinkedIn</li>
+  </div>
+  <div class= "footer-col">
+    <h3>Newsletter</h3>
+    <p>Stay updated with the latest news, offers, and health tips by subscribing to our newsletter.</p>
+    <div class="subscribe">
+      <input type="text" placeholder="Email Address">
+      <a href="" class="green">SUBSCRIBE</a>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2024 TheraCity Pharmaceutical Store. All rights reserved.</p>
+    <div class="pro-links">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-linkedin-in"></i>
+    </div>
+  </div>
+</footer>
+
+<!-----Java Script ------->
+<script>
+  $('#menu-btn').click(function() {
+      $('nav .navigation ul').addClass('active')
+  });
+  $('#menu-close').click(function() {
+      $('nav .navigation ul').removeClass('active')
+  });
+  </script>
+
+</body>
+</html>

@@ -22,6 +22,19 @@ def home_page(request):
     template = 'theracityApp/homepage.html'
     return render(request, template)
 
+
+def about_us(request):
+    """ Displays the about us page"""
+    template = 'theracityApp/about.html'
+    return render(request, template)
+
+
+def pharmacy(request):
+    """ Displays the pharmacy page"""
+    template = 'theracityApp/pharmacy.html'
+    return render(request, template)
+
+
 # Functiion to recieve user's coordinates
 @require_POST
 def store_user_location(request):
@@ -129,7 +142,7 @@ def pharmacies_autosuggest(request, term):
         autosuggestions = []
     else:
         pharmacies = Pharmacy.objects.filter(pharmacy_name__icontains=term)
-        autosuggestions = [{'pharmacy_name': pharmacy.pharmacy_name, 'pharmacy_id': pharmacy.id} for pharmacy in pharmacies]
+        autosuggestions = [{'pharmacy_id': pharmacy.id, 'pharmacy_name': pharmacy.pharmacy_name, 'address': pharmacy.address} for pharmacy in pharmacies]
     return JsonResponse({'autosuggestions': autosuggestions})
 
 
@@ -149,3 +162,9 @@ def search_pharmacy(request, id):
         }
 
         return JsonResponse({'pharmacy': requested_pharmacy})
+
+
+def pharmacy_details(request, id):
+    template = 'theracityApp/pharmacy-details.html'
+
+    return render(request, template)

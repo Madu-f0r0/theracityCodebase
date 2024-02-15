@@ -1,99 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheraCity Homepage</title> 
+    <title>TheraCity Pharmaceutical Store</title>
     {% load static %}
-    <!-- {% csrf_token %} -->
-    <link rel="stylesheet" href="{% static 'theracityApp/css/homepage.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'theracityApp/css/style.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!----Navigation ------>
     <header>
-        <a class="header_item">About us</a>
-        <a class="header_item">Search</a>
-        <button class="header_item" id="signInBtn">Sign in</button>
+      <nav>
+        <img src="{% static 'theracityApp/img/Logo.png' %}" alt="TheraCity logo">
+        <div class="search-options">
+          <p class="search-options-item" id="pharmacies">Pharmacies</p>
+          <p class="search-options-item" id="medicines">Medicines</p>
+        </div>
+        <div class="navigation">
+          <ul>
+            <i id="menu-close" class="fa fa-times"></i>
+            <li><a class="active" href="{% url 'homepage' %}">Home</a></li>
+            <li><a href="{% url 'about_us' %}">About Us</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
+          <i id="menu-btn" class="fa fa-bars"></i>
+        </div>
+      </nav>
+
+      <div class="search hidden">
+        <input type="text" class="search-bar" id="search-bar" placeholder="">
+        <button type="submit" id="search-button"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div class="suggestions"></div>
     </header>
-    <div class="center_body">
-        <p>Welcome!</p>
-    </div>
-    <div class="location">
-        <p>We would like to use your location to optimize your search responses.</p>
-        <p>Allow us use your location?</p>
-        <button id="yesBtn">Yes</button>
-        <button id="noBtn">No</button>
-    </div>
-    
-    <script>
-        function getCookie(name) {
-            var cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i].trim();
-                    // Check if the cookie name matches the desired name
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var locationSection = document.getElementById('locationSection');
-            var yesBtn = document.getElementById('yesBtn');
-            var noBtn = document.getElementById('noBtn');
-            var signInBtn = document.getElementById('signInBtn');
+    <!---Home--->
+    <section id="home">
+      <h2>Your Largest Online Pharmacy Store</h2>
+      <p>Welcome to <b>TheraCity</b>, your one-stop destination for all your pharmaceutical needs.</p>
+      <div class="butn">
+        <a class="red" href="">Learn More</a>
+      </div>
+    </section>
 
-            yesBtn.addEventListener('click', function() {
-                // Check if geolocation is supported
-                if ("geolocation" in navigator) {
-                    navigator.geolocation.getCurrentPosition(function(position) {
-                        // Send the location to the server-side (replace with your actual endpoint)
-                        var latitude = position.coords.latitude;
-                        var longitude = position.coords.longitude;
-                        console.log(`CSRF token is ${getCookie('csrftoken')}`);
+    <!-----Services----->
+    <section id="services">
+      <h1>Our Services</h2>
+      <p>Discover a wide network of reputable pharmacy stores right in your neighborhood with TheraCity. Our platform connects you to a variety of pharmacies, ensuring accessibility to essential medications and healthcare products</p>
+      <div class="ser-base">
+        <div class="ser-box">
+          <i class="fa fa-medkit"></i>
+          <h3>Medical Services</h3>
+          <p>Our platform offers comprehensive access to vital healthcare services provided by local pharmacies. From prescription medications to over-the-counter remedies, our user-friendly interface allows you to discover detailed information about each pharmacy's location, operating hours, available services, and customer reviews. With TheraCity, navigating the healthcare landscape is simplified, ensuring a seamless experience in locating and ordering from nearby pharmacies. Trust us to provide a convenient and reliable solution for all your pharmaceutical needs.</p>
+        </div>
+        <div class="ser-box">
+          <i class="fa fa-h-square"></i>
+          <h3>Products</h3>
+          <p>Discover an extensive range of high-quality healthcare products available through our platform. From essential medications to wellness essentials, we offer a diverse selection to cater to your specific needs. With TheraCity, you can browse through our curated list of pharmacies to find the products you require, ensuring access to vital healthcare items with just a few clicks. Experience convenience and peace of mind as you explore our wide array of pharmaceutical offerings.</p>
+        </div>
+        <div class="ser-box">
+          <i class="fa fa-ambulance"></i>
+          <h3>Swift Deliveries</h3>
+          <p>At TheraCity, we understand the importance of timely access to healthcare products. That's why we prioritize swift and efficient deliveries to ensure that your orders reach you promptly. With our dedicated logistics network, we guarantee fast and reliable delivery services, bringing your essential medications and wellness products right to your doorstep. Experience the convenience of hassle-free deliveries with TheraCity and enjoy peace of mind knowing that your healthcare needs are in safe hands.</p>
+        </div>
+      </div>
+    </section>
 
-                        // Example: sending the location to the server using fetch
-                        fetch('/user/location/', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRFToken': getCookie('csrftoken'),
-                            },
-                            body: JSON.stringify({ latitude: latitude, longitude: longitude }),
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            // Handle the response from the server if needed
-                            console.log(data);
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-                    }, function(error) {
-                        console.error('Error getting location:', error.message);
-                    });
-                } else {
-                    console.error('Geolocation is not supported by your browser');
-                }
-            });
+    <!----Products---->
+    <section id="products">
+      <h1>Popular Orders</h1>
+      <p></p>
+      <div class="product-box">
+        <div class="product">
+          <img src="{% static 'theracityApp/img/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg' %}" alt="">
+          <div class="details">
+            <span> Updated 2/5/24</span>
+            <h6>Paracetamol</h6>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(200)</span>
+            </div>
+          </div>
+          <div class="cost">
+            $15
+          </div>
+        </div>
+        <div class="product">
+          <img src="{% static 'theracityApp/img/brett-jordan--eFPTYvfMxY-unsplash.jpg' %}" alt="">
+          <div class="details">
+            <span> Updated 2/5/24</span>
+            <h6>Amoxicilin</h6>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(200)</span>
+            </div>
+          </div>
+          <div class="cost">
+            $15
+          </div>
+        </div>
+        <div class="product">
+          <img src="{% static 'theracityApp/img/melany-tuinfosalud-com-iA3bAZsR4o4-unsplash.jpg' %}" alt="">
+          <div class="details">
+            <span> Updated 2/5/24</span>
+            <h6>Paracetamol</h6>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(200)</span>
+            </div>
+          </div>
+          <div class="cost">
+            $15
+          </div>
+        </div>
+        <div class="product">
+          <img src="{% static 'theracityApp/img/melany-tuinfosalud-com-sCsVWSryy3o-unsplash.jpg' %}" alt="">
+          <div class="details">
+            <span> Updated 2/5/24</span>
+            <h6>Paracetamol</h6>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(200)</span>
+            </div>
+          </div>
+          <div class="cost">
+            $15
+          </div>
+        </div>
+        <div class="product">
+          <img src="{% static 'theracityApp/img/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg' %}" alt="">
+          <div class="details">
+            <span> Updated 2/5/24</span>
+            <h6>Paracetamol</h6>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(200)</span>
+            </div>
+          </div>
+          <div class="cost">
+            $15
+          </div>
+        </div>
+        <div class="product">
+          <img src="{% static 'theracityApp/img/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg' %}" alt="">
+          <div class="details">
+            <span> Updated 2/5/24</span>
+            <h6>Paracetamol</h6>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(200)</span>
+            </div>
+          </div>
+          <div class="cost">
+            $15
+          </div>
+        </div>
+        <div class="product">
+          <img src="{% static 'theracityApp/img/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg' %}" alt="">
+          <div class="details">
+            <span> Updated 2/5/24</span>
+            <h6>Paracetamol</h6>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span>(200)</span>
+            </div>
+          </div>
+          <div class="cost">
+            $15
+          </div>
+        </div>
+      </div>
+    </section>
 
-            noBtn.addEventListener('click', function() {
-                // Handle the case when the user clicks "No"
-                console.log('User denied location access');
-            });
+    <!--- Team Members ---->
+    <section id="AboutUs">
+      <h1>Meet Our Team</h1>
+      <div class="team-box">
+        <div class="team-member">
+          <img src="{% static 'theracityApp/img/Daniel.jpg' %}" alt="Image of team member Daniel">
+          <h2>Daniel Herbert</h2>
+          <p>Veterinary doctor turned software engineer at ALX. Daniel excels in handling the backend development of our website, bringing a unique blend of medical and coding expertise to the team.</p>
+          <div class="pro-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+        </div>
 
-            // Optionally, you can also handle the Sign In button
-            signInBtn.addEventListener('click', function() {
-                // Handle the Sign In button click
-                console.log('Sign in button clicked');
-                // You may want to show the location section here, or redirect to a sign-in page.
-                /* locationSection.style.display = 'block'; */
-            });
-        });
-    </script>
-</body>
+        <div class="team-member">
+          <img src="{% static 'theracityApp/img/Mahder.jpg' %}" alt="Image of team member Mahder">
+          <h2>Mahder Welde Giorgis</h2>
+          <p>Experienced IT professional from the Banking Industry, Mahder specializes in JavaScript functionality. Her expertise ensures seamless and interactive user experiences on our website.</p>
+          <div class="pro-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+        </div>
+
+        <div class="team-member">
+          <img src="{% static 'theracityApp/img/DSC_1368.JPG' %}" alt="Image of team member Oluwatosin">
+          <h2>Oluwatosin Ezekiel Ajayi</h2>
+          <p>Technical Writer with a passion for crafting user-friendly interfaces. Tosin is dedicated to enhancing the front-end aspect of our website, ensuring clarity and accessibility for our users.</p>
+          <div class="pro-links">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-col">
+        <h3>Customer Service</h3>
+        <li>FAQ</li>
+        <li>Customer Feedback</li>
+        <li>Return & Exchange</li>
+        <li>Store Locator</li>
+        <li>Order Information</li>
+        <li>Get in touch</li>
+      </div>
+      <div class="footer-col">
+        <h3>About Us</h3>
+        <li>Services</li>
+        <li>License & Agreement</li>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <li>Email: example@theracity.com</li>
+        <li>Phone: +244************</li>
+        <li>LinkedIn</li>
+      </div>
+      <div class= "footer-col">
+        <h3>Newsletter</h3>
+        <p>Stay updated with the latest news, offers, and health tips by subscribing to our newsletter.</p>
+        <div class="subscribe">
+          <input type="text" placeholder="Email Address">
+          <a href="" class="green">SUBSCRIBE</a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2024 TheraCity Pharmaceutical Store. All rights reserved.</p>
+        <div class="pro-links">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+      </div>
+    </footer>
+
+    <!-----Java Script ------->
+    <script src="{% static 'theracityApp/js/script.js' %}"></script>
+  </body>
 </html>

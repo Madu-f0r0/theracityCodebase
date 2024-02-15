@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheraCity Pharmaceutical Store</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'theracityApp/css/style.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!----Navigation ------>
+    <header>
+      <nav>
+        <img src="{% static 'theracityApp/img/Logo.png' %}" alt="TheraCity logo">
+        <div class="search-options">
+          <p class="search-options-item" id="pharmacies">Pharmacies</p>
+          <p class="search-options-item" id="medicines">Medicines</p>
+        </div>
+        <div class="navigation">
+          <ul>
+            <i id="menu-close" class="fa fa-times"></i>
+            <li><a href="{% url 'homepage' %}">Home</a></li>
+            <li><a class="active" href="{% url 'about_us' %}">About Us</a></li>
+            <li><a href="">Blog</a></li>
+            <li><a href="">Contact Us</a></li>
+          </ul>
+          <i id="menu-btn" class="fa fa-bars"></i>
+        </div>
+      </nav>
+
+      <div class="search hidden">
+        <input type="text" class="search-bar" id="search-bar" placeholder="">
+        <button type="submit" id="search-button"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div class="suggestions"></div>
+    </header>
+
+    <!---Home--->
+    <section id="about-home">
+      <h2>About TheraCity</h2>
+    </section>
+
+    <section id="about-container">
+      <div class="about-img">
+        <img src="{% static 'theracityApp/img/image 2.jpg' %}" alt="">
+      </div>
+      <div class="about-text">
+        <h2>Welcome to TheraCity, Experience a committment to revolutionizing access to healthcare services and pharmaceutical products</h2>
+        <p>Our journey began with a simple yet profound vision: to create a platform that seamlessly connects individuals with reliable pharmacies and essential healthcare resources.</p>
+        <div class="about-fe">
+          <img src="{% static 'theracityApp/img/image 3.jpg' %}" alt="">
+          <div class="fe-text">
+            <h5>200+ Pharmacies</h5>
+            <p>With a network of over 200 pharmacies, TheraCity offers unparalleled access to essential healthcare resources and pharmaceutical products.</p>
+            </div>
+        </div>
+            <div class="about-fe">
+          <img src="{% static 'theracityApp/img/image 4.jpg' %}" alt="">
+          <div class="fe-text">
+            <h5>200+ Pharmacies</h5>
+            <p>With a network of over 200 pharmacies, TheraCity offers unparalleled access to essential healthcare resources and pharmaceutical products.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-----Services----->
+    <section id="services">
+      <h1>Our Mission</h2>
+    <p>Our mission is to empower individuals by providing them with convenient access to quality healthcare solutions. We strive to bridge the gap between patients and pharmacies, ensuring that everyone can easily obtain the medications and products they need to lead healthier lives.</p>
+    <div class="ser-base">
+      <div class="ser-box">
+        <i class="fa fa-id-card"></i>
+        <h3>Who We Are</h3>
+        <p>TheraCity is more than just a digital platform; we are a dedicated team of healthcare enthusiasts, technologists, and innovators passionate about making a positive impact in the world. With diverse backgrounds and expertise, we come together to create a user-friendly ecosystem that prioritizes accessibility, affordability, and reliability.</p>
+      </div>
+      <div class="ser-box">
+        <i class="fa fa-check-circle"></i>
+        <h3>What we Offer</h3>
+        <p>Through our platform, users can explore a vast network of trusted pharmacy stores, access vital information about available services and products, and place orders with confidence. Whether you're searching for prescription medications, over-the-counter remedies, or wellness essentials, TheraCity is here to meet your healthcare needs.</p>
+      </div>
+      <div class="ser-box">
+        <i class="fa fa-gavel"></i>
+        <h3>Our Commitment</h3>
+        <p>At TheraCity, we uphold the highest standards of integrity, professionalism, and customer service. We are committed to fostering transparency, fostering trust, and fostering trust in every interaction. Your health and well-being are our top priorities, and we go above and beyond to ensure that you receive the care and support you deserve.</p>
+      </div>
+    </div>
+    </section>
+
+    <footer>
+      <div class="footer-col">
+        <h3>Customer Service</h3>
+        <li>FAQ</li>
+        <li>Customer Feedback</li>
+        <li>Return & Exchange</li>
+        <li>Store Locator</li>
+        <li>Order Information</li>
+        <li>Get in touch</li>
+      </div>
+      <div class="footer-col">
+        <h3>About Us</h3>
+        <li>Services</li>
+        <li>License & Agreement</li>
+      </div>
+      <div class="footer-col">
+        <h3>Contact Us</h3>
+        <li>Email: example@theracity.com</li>
+        <li>Phone: +244************</li>
+        <li>LinkedIn</li>
+      </div>
+      <div class= "footer-col">
+        <h3>Newsletter</h3>
+        <p>Stay updated with the latest news, offers, and health tips by subscribing to our newsletter.</p>
+        <div class="subscribe">
+          <input type="text" placeholder="Email Address">
+          <a href="" class="green">SUBSCRIBE</a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2024 TheraCity Pharmaceutical Store. All rights reserved.</p>
+        <div class="pro-links">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-linkedin-in"></i>
+        </div>
+        Image by <a href="https://www.freepik.com/free-photo/top-view-stethoscope-blue-background_8096670.htm#query=free%20medical%20images&position=1&from_view=search&track=ais&uuid=300b9616-7420-4138-a77d-a5991d172d8c">Freepik</a>
+      </div>
+    </footer>
+
+    <!-----Java Script ------->
+    <script src="{% static 'theracityApp/js/script.js' %}"></script>
+  </body>
+</html>
