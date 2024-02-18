@@ -156,12 +156,15 @@ def search_pharmacy(request, id):
         except Exception:
             return JsonResponse({'error': 'no pharmacy with this id in our database'}, status=404)
 
-        requested_pharmacy = {
+        context = {
             'name': pharmacy.pharmacy_name,
             'address': pharmacy.address,
         }
 
-        return JsonResponse({'pharmacy': requested_pharmacy})
+        template = 'theracityApp/pharmacy.html'
+        return render(request, template, context)
+
+        # return JsonResponse({'pharmacy': requested_pharmacy})
 
 
 def pharmacy_details(request, id):
