@@ -265,9 +265,6 @@ nav .navigation ul li:hover .sub-menu ul li a:hover{
     color: lightgreen;
 }
 
-
-
-
 /*---Home---*/
 #home{
     color: #fff;
@@ -448,13 +445,145 @@ nav .navigation ul li:hover .sub-menu ul li a:hover{
 }
 
 
-#AboutUs .team-member img{
+#AboutUs .team-member img {
     width: 100%;
     height: 60%;
     background-size: cover;
     background-position: center;
 }
 
+/* Pharmacy-Locator */
+
+#pharm-locator {
+    text-align: center;
+    padding: 50px;
+}
+
+#pharm-locator .pharm_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+#pharm-locator .pharm {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.5s;
+}
+
+#pharm-locator .pharm:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+#pharm-locator .pharm .desc {
+    text-align: start;
+    padding: 10px 0;
+}
+
+#pharm-locator .pharm .desc span {
+    color: #0606063;
+    font-size: 12px;
+}
+
+#pharm-locator .pharm .desc h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+#pharm-locator .pharm .desc i {
+    font-size: 12px;
+    color: rgb(243, 181, 25);
+}
+
+#pharm-locator .pharm img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.search-pharm {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-pharm div {
+    width: 40%;
+    padding: 10px 15px;
+    padding-bottom: 40px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.5s;
+}
+
+@media (max-width: 1000px) {
+    .search-pharm div {
+        width: 90%;
+    }
+}
+
+.search-pharm img {
+    border-radius: 20px;
+    width: 100%;
+}
+
+.search-pharm p {
+    font-size: 20px;
+    font-weight: bold;
+    color: grey;
+    margin: 15px 0 0;
+}
+
+.search-pharm h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+}
+
+.search-pharm a {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.search-pharm-nav {
+    background-color: grey;
+}
+
+/*Pharmacy Home */
+/* #pharmacy-home{
+    color: #fff;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)), url("../img/1.png");
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#pharmacy-home h2{
+    color: #fff;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+} */
 
 /*footer*/
 footer{
@@ -632,28 +761,6 @@ footer .copyright .pro-links i:hover{
     color: #29303B;
 }
 
-/*Pharmacy Home */
-#pharmacy-home{
-    color: #fff;
-    font-size: 2.2rem;
-    letter-spacing: 1px;
-    background-image: linear-gradient(rgba(9, 5, 54, 0.3), rgba(5, 4, 46, 0.7)), url("../img/1.png");
-    width: 100%;
-    height: 60vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-#pharmacy-home h2{
-    color: #fff;
-    font-size: 2.2rem;
-    letter-spacing: 1px;
-}
 
 
 @media (max-width: 769px){
