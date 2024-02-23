@@ -159,6 +159,8 @@ def search_pharmacy(request, id):
         context = {
             'name': pharmacy.pharmacy_name,
             'address': pharmacy.address,
+            'lat': pharmacy.latitude,
+            'lng': pharmacy.longitude,
         }
 
         template = 'theracityApp/pharmacy.html'

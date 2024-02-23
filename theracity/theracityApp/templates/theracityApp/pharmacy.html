@@ -38,12 +38,13 @@
         <div class="suggestions"></div>
     </header>
     <section class="search-pharm">
-        <div>
+        <div class="pharma">
             <img src="{% static 'theracityApp/img/african-american-pharmacist-working-drugstore-hospital-pharmacy-african-healthcare (1).jpg' %}" alt="">
             <p>{{ name }}</p>
             <h5>{{ address }}</h5>
             <a href="https://www.theracare.com">Go to website</a>
         </div>
+	<div id="map" lat="{{ lat }}" lng="{{ lng }}"></div>
     </section>
 
     <footer>
@@ -84,5 +85,10 @@
             </div>
         </div>
     </footer>
+
+    <!-----Java Script ------->
+    <script src="{% static 'theracityApp/js/script.js' %}"></script>
+    <script src="{% static 'theracityApp/js/map.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABhvFxTlU1hiHm-Ous6CKSTUF-SSuwUvk&callback=showMap" async defer></script>
 </body>
 </html>

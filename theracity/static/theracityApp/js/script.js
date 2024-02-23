@@ -26,50 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
             searchContainer.classList.remove('hidden');
             suggestionsContainer.classList.remove('hidden');
         }
-
-        /* if (pharmacies.classList.contains('active')) {
-            console.log("yes it does");
-            var pharmacySearchBar = document.querySelector('.search-pharmacies');
-            // Add an event listener to detect changes in the input field
-            pharmacySearchBar.addEventListener('input', function() {
-                // Get the current value of the input field
-                const term = pharmacySearchBar.value.trim();
-            
-                // Make an AJAX request to fetch pharmacy autosuggestions
-                if (term) {
-                fetch(`/search/pharmacy/suggest/${term}/`)
-                    .then(response => response.json())
-                    .then(data => {
-                    // Clear previous suggestions
-                    suggestionsContainer.innerHTML = '';
-            
-                    // Render new suggestions
-                    data.autosuggestions.forEach(suggestion => {
-                        const suggestionDiv = document.createElement('div');
-                        const suggestionPharmacyName = document.createElement('p');
-                        const suggestionPharmacyAddress = document.createElement('p');
-            
-                        suggestionDiv.classList.add('suggestion');
-            
-                        suggestionPharmacyName.textContent = suggestion.pharmacy_name;
-                        suggestionPharmacyName.classList.add('pharmacy-name');
-            
-                        suggestionPharmacyAddress.textContent = suggestion.address;
-                        suggestionPharmacyAddress.classList.add('pharmacy-address');
-            
-                        suggestionDiv.appendChild(suggestionPharmacyName);
-                        suggestionDiv.appendChild(suggestionPharmacyAddress);
-            
-                        suggestionsContainer.appendChild(suggestionDiv);
-                    });
-                    })
-                    .catch(error => console.error('Error fetching autosuggestions:', error));
-                } else {
-                    // Clear suggestions if input field is empty
-                    suggestionsContainer.innerHTML = '';
-                }
-            });
-        } */
     });
   
     medicines.addEventListener('click', function() {
@@ -124,7 +80,6 @@ const searchBar = document.getElementById('search-bar');
 const suggestionsContainer = document.querySelector('.suggestions');
 const pharmacies = document.getElementById('pharmacies');
 const medicines = document.getElementById('medicines');
-
 
 // Add an event listener to detect changes in the input field
 searchBar.addEventListener('input', function() {
@@ -210,6 +165,3 @@ searchBar.addEventListener('input', function() {
     suggestionsContainer.innerHTML = '';
   }
 });
-
-// Medicine Search Autosuggestion Implementation
-// Get the input field and suggestions container
