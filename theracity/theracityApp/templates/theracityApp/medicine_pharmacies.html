@@ -37,16 +37,26 @@
 
         <div class="suggestions"></div>
     </header>
-    <section class="search-pharm">
-        <div class="pharma-map-container">
-            <div class="pharma">
-                <img src="{% static 'theracityApp/img/african-american-pharmacist-working-drugstore-hospital-pharmacy-african-healthcare (1).jpg' %}" alt="">
-                <p>{{ name }}</p>
-                <h5>{{ address }}</h5>
-                <a href="https://www.theracare.com">Go to website</a>
-            </div>
-	    <div id="map" lat="{{ lat }}" lng="{{ lng }}" name="{{ name }}"></div>
+    <section class="medicine">
+        <div class="medicine-details">
+            <img src="" alt="">
+            <p>{{ data.medicine.name }}</p>
+	    <h5>By {{ data.medicine.manufacturer_name }}</h5>
+	    <h5>{{ data.medicine.manufacturer_country }}</h5>
         </div>
+    </section>
+
+    <section class="pharmacies">
+        {% for pharmacy in data.pharmacies %}
+	    <div class="pharmacy-details">
+                <img src="" alt="">
+		<p>{{ pharmacy.name }}</p>
+                <h5>{{ pharmacy.address }}</h5>
+		<h5>{{ pharmacy.medicine_price }}</h5>
+            </div>
+        {% endfor %}
+    </section>
+
     </section>
 
     <footer>

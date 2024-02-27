@@ -9,14 +9,6 @@ import json
 
 
 # Create your views here.
-def say_hello(request):
-    template = 'theracityApp/hello.html'
-    context = {
-        'name': 'Danny',
-    }
-    return render(request, template, context)
-    # return HttpResponse('Hello world')
-
 def home_page(request):
     """ Displays the homepage"""
     template = 'theracityApp/homepage.html'
@@ -26,12 +18,6 @@ def home_page(request):
 def about_us(request):
     """ Displays the about us page"""
     template = 'theracityApp/about.html'
-    return render(request, template)
-
-
-def pharmacy(request):
-    """ Displays the pharmacy page"""
-    template = 'theracityApp/pharmacy.html'
     return render(request, template)
 
 
@@ -165,11 +151,3 @@ def search_pharmacy(request, id):
 
         template = 'theracityApp/pharmacy.html'
         return render(request, template, context)
-
-        # return JsonResponse({'pharmacy': requested_pharmacy})
-
-
-def pharmacy_details(request, id):
-    template = 'theracityApp/pharmacy-details.html'
-
-    return render(request, template)

@@ -88,7 +88,7 @@ searchBar.addEventListener('input', function() {
 
   // Make an AJAX request to fetch pharmacy autosuggestions
   if (pharmacies.classList.contains('active') && term) {
-    fetch(`/search/pharmacy/suggest/${term}/`)
+    fetch(`/theracity/search/pharmacy/suggest/${term}/`)
       .then(response => response.json())
       .then(data => {
         // Clear previous suggestions
@@ -116,7 +116,7 @@ searchBar.addEventListener('input', function() {
             console.log(suggestion.pharmacy_id)
             const pharmacyId = suggestion.pharmacy_id;
 
-            window.location.href = `/search/pharmacy/${pharmacyId}`;
+            window.location.href = `/theracity/search/pharmacy/${pharmacyId}`;
           });
 
           suggestionsContainer.appendChild(suggestionDiv);
@@ -130,7 +130,7 @@ searchBar.addEventListener('input', function() {
 
   // Make an AJAX request to fetch medicine autosuggestions
   if (medicines.classList.contains('active') && term) {
-    fetch(`/search/medicine/suggest/${term}/`)
+    fetch(`/theracity/search/medicine/suggest/${term}/`)
       .then(response => response.json())
       .then(data => {
         // Clear previous suggestions
