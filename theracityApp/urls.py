@@ -4,7 +4,6 @@ from . import views
 urlpatterns = [
     path('theracity/', views.home_page, name='homepage'),
     path('theracity/about/', views.about_us, name='about_us'),
-    path('theracity/pharmacy/', views.pharmacy, name='pharmacy'),
     path('theracity/user/location/', views.store_user_location, name='user_location'),
     path('theracity/user/pharmacies/', views.closest_pharmacies, name='closest_pharmacies'),
     path('theracity/search/medicine/suggest/<str:term>/', views.medicine_autosuggest, name='medicine_autosuggest'),

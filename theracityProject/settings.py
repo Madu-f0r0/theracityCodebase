@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-xc0m90t5l7hq4rm4189%+ve0*g9r+ihnn47@tfff-gl#9#@qz-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['theracity.pythonanywhere.com']
 
 
 # Application definition
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'theracity.urls'
+ROOT_URLCONF = 'theracityProject.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'theracity.wsgi.application'
+WSGI_APPLICATION = 'theracityProject.wsgi.application'
 
 
 # Database
