@@ -14,28 +14,23 @@
     <header>
       <nav>
         <img src="{% static 'theracityApp/img/Logo.png' %}" alt="TheraCity logo">
-        <div class="search-options">
-          <p class="search-options-item" id="pharmacies">Pharmacies</p>
-          <p class="search-options-item" id="medicines">Medicines</p>
-        </div>
-        <div class="navigation">
-          <ul>
-            <i id="menu-close" class="fa fa-times"></i>
-            <li><a class="active" href="{% url 'homepage' %}">Home</a></li>
-            <li><a href="{% url 'about_us' %}">About Us</a></li>
-            <li><a href="">Blog</a></li>
-            <li><a href="">Contact Us</a></li>
-          </ul>
+        <div class="mobile-nav">
+          <div class="navigation">
+            <ul>
+              <i id="menu-close" class="fa fa-times"></i>
+              <li><a class="search-options-item active" href="{% url 'homepage' %}">Home</a></li>
+              <li><a class="search-options-item" href="{% url 'about_us' %}">About Us</a></li>
+              <li><a class="search-options-item" href="">Blog</a></li>
+            </ul>
+
+            <div class="butn">
+              <a class="btn transparent" href="">Login</a>
+              <a class="btn red" href="">Get Started - Sign up</a>
+            </div>
+          </div>
           <i id="menu-btn" class="fa fa-bars"></i>
         </div>
       </nav>
-
-      <div class="search hidden">
-        <input type="text" class="search-bar" id="search-bar" placeholder="">
-        <button type="submit" id="search-button"><i class="fas fa-search"></i></button>
-      </div>
-
-      <div class="suggestions"></div>
     </header>
 
     <!---Home--->
@@ -43,7 +38,7 @@
       <h2>Your Largest Online Pharmacy Store</h2>
       <p>Welcome to <b>TheraCity</b>, your one-stop destination for all your pharmaceutical needs.</p>
       <div class="butn">
-        <a class="red" href="">Learn More</a>
+        <a class="btn red" href="">Get Started - Sign up</a>
       </div>
     </section>
 
@@ -203,45 +198,6 @@
       </div>
     </section>
 
-    <!--- Team Members ---->
-    <section id="AboutUs">
-      <h1>Meet Our Team</h1>
-      <div class="team-box">
-        <div class="team-member">
-          <img src="{% static 'theracityApp/img/Daniel.jpg' %}" alt="Image of team member Daniel">
-          <h2>Daniel Herbert</h2>
-          <p>Veterinary doctor turned software engineer at ALX. Daniel excels in handling the backend development of our website, bringing a unique blend of medical and coding expertise to the team.</p>
-          <div class="pro-links">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
-          </div>
-        </div>
-
-        <div class="team-member">
-          <img src="{% static 'theracityApp/img/Mahder.jpg' %}" alt="Image of team member Mahder">
-          <h2>Mahder Welde Giorgis</h2>
-          <p>Experienced IT professional from the Banking Industry, Mahder specializes in JavaScript functionality. Her expertise ensures seamless and interactive user experiences on our website.</p>
-          <div class="pro-links">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
-          </div>
-        </div>
-
-        <div class="team-member">
-          <img src="{% static 'theracityApp/img/DSC_1368.JPG' %}" alt="Image of team member Oluwatosin">
-          <h2>Oluwatosin Ezekiel Ajayi</h2>
-          <p>Technical Writer with a passion for crafting user-friendly interfaces. Tosin is dedicated to enhancing the front-end aspect of our website, ensuring clarity and accessibility for our users.</p>
-          <div class="pro-links">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-linkedin-in"></i>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <footer>
       <div class="footer-col">
         <h3>Customer Service</h3>
@@ -283,5 +239,6 @@
 
     <!-----Java Script ------->
     <script src="{% static 'theracityApp/js/script.js' %}"></script>
+    <script src="{% static 'theracityApp/js/navbarScrollColor.js' %}"></script>
   </body>
 </html>

@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'theracityApp',
+    'accounts',
+    'django_use_email_as_username.apps.DjangoUseEmailAsUsernameConfig',
+    'custom_user',
 ]
 
 MIDDLEWARE = [
@@ -77,10 +80,10 @@ WSGI_APPLICATION = 'theracityProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.mysql',
-        'NAME': 'theracity_db',
-        'USER': 'theracity_dev',
-        'PASSWORD': 'theracity_pwd',
-        'HOST': 'localhost',
+        'NAME': 'theracity$theracity_db',
+        'USER': 'theracity',
+        'PASSWORD': 'project_db_pwd',
+        'HOST': 'theracity.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
@@ -135,3 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Session settings
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+# django-use-email-as-username setting
+AUTH_USER_MODEL = 'custom_user.User'
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'

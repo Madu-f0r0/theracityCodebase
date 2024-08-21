@@ -86,6 +86,11 @@ nav .navigation ul{
     align-items: center;
 }
 
+nav .bgColorChange {
+   background-color:  white;
+   color: #7b838a;
+}
+
 .search {
     margin-top: 50px;
     width: 60%;
@@ -148,7 +153,7 @@ nav .navigation ul{
 
 .suggestion {
     margin: 0 5px;
-    border-bottom: 2px solid #ccc;  
+    border-bottom: 2px solid #ccc;
     padding: 10px;
     display: flex;
     flex-direction: column;

@@ -1,8 +1,8 @@
 $('#menu-btn').click(function() {
-    $('nav .navigation ul').addClass('active')
+    $('nav .navigation').addClass('active')
 });
 $('#menu-close').click(function() {
-    $('nav .navigation ul').removeClass('active')
+    $('nav .navigation').removeClass('active')
 });
 
 // JavaScript to handle highlighting and creating IDs for search bar
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (medicines.classList.contains('active')) {
             inactivateSearchOptionItem(medicines);
         }
-        
+
         if (pharmacies.classList.contains('active')) {
             inactivateSearchOptionItem(pharmacies);
         } else {
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', function() {
             suggestionsContainer.classList.remove('hidden');
         }
     });
-  
+
     medicines.addEventListener('click', function() {
         if (pharmacies.classList.contains('active')) {
             suggestionsContainer.innerHTML = '';
             inactivateSearchOptionItem(pharmacies);
 
         }
-        
+
         if (medicines.classList.contains('active')) {
             suggestionsContainer.innerHTML = '';
             inactivateSearchOptionItem(medicines);
@@ -67,12 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (searchBar.value) {
             searchBar.value = "";
-        }  
+        }
     }
 
     function setSearchPlaceholder(placeholderText) {
         searchBar.placeholder = placeholderText;
-    }  
+    }
 });
 
 // Search Autosuggestion Implementation

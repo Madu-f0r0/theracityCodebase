@@ -1,9 +1,11 @@
 from .models import Medicine, Pharmacy, Stock
+from .forms import PharmacyRegistrationForm
+from django.contrib.auth import login
 from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.sessions.models import Session
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.http import require_POST
 import json
 
@@ -21,7 +23,19 @@ def about_us(request):
     return render(request, template)
 
 
-# Functiion to recieve user's coordinates
+def register(request):
+    if request.method == 'POST':
+        form = PharmacyRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('homepage')
+    else:
+        form = PharmacyRegistrationForm()
+    return render(request, 'theracityApp/register.html', {'form': form})
+
+
+# Function to recieve user's coordinates
 @require_POST
 def store_user_location(request):
     try:
@@ -36,17 +50,17 @@ def store_user_location(request):
         return JsonResponse({'status': 'success', 'latitude': latitude, 'longitude': longitude})
     except Exception as e:
         return JsonResponse({'error': str(e)}, status=500)
-    
+
 
 def closest_pharmacies(request):
     # Retrieve user's location from the session
     user_longitude = request.session.get('user_longitude')
     user_latitude = request.session.get('user_latitude')
-    
+
     # Check if the user's location is available
     if user_latitude is None or user_longitude is None:
         return JsonResponse({'error': 'User location not available in session'}, status=400)
-    
+
     # Create a Point object from the user's location
     user_location = Point(float(user_longitude), float(user_latitude), srid=4326)
 
@@ -82,11 +96,11 @@ def pharmacies_with_medicine(request, id):
         # Retrieve user's location from the session
         user_longitude = request.session.get('user_longitude')
         user_latitude = request.session.get('user_latitude')
-        
+
         # Check if the user's location is available
         if user_latitude is None or user_longitude is None:
             return JsonResponse({'error': 'User location not available in the session'}, status=400)
-        
+
         # Create a Point object from the user's location
         user_location = Point(float(user_longitude), float(user_latitude), srid=4326)
 
@@ -95,7 +109,7 @@ def pharmacies_with_medicine(request, id):
             medicine = Medicine.objects.get(id=id)
         except Exception:
             return JsonResponse({'error': 'no medicine with this id in our database'}, status=404)
-        
+
         #Query DB for 5 closest pharmacies with specified medicine
         pharmacies = Pharmacy.objects.filter(stock__medicine=medicine).annotate(
                 distance=Distance('location', user_location)

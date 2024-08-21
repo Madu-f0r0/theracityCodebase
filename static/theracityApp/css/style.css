@@ -73,17 +73,36 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 1vw 4vw;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.5s ease;
 }
+
 nav img{
     width: 80px;
     cursor: pointer;
 }
 
+nav .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    transition: 1.5s ease;
+}
+
 nav .navigation ul{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
+    width: 50%;
+}
+
+.bgColorChange {
+   background-color:  white;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bgColorChange p {
+    color: #45474B;
 }
 
 .search {
@@ -148,7 +167,7 @@ nav .navigation ul{
 
 .suggestion {
     margin: 0 5px;
-    border-bottom: 2px solid #ccc;  
+    border-bottom: 2px solid #ccc;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -212,6 +231,10 @@ nav .navigation ul li a{
     font-weight: 500;
 }
 
+.bgColorChange .navigation ul li a {
+    color: #45474B;
+}
+
 nav .navigation ul li::after{
     content: '';
     width: 0;
@@ -225,10 +248,6 @@ nav .navigation ul li::after{
 nav .navigation ul li a.active {
     color: lightgreen;
     font-weight: bold;
-}
-
-nav .navigation ul li:hover::after{
-    width: 100%;
 }
 
 .sub-menu{
@@ -263,6 +282,19 @@ nav .navigation ul li:hover .sub-menu ul li:last-child{
 
 nav .navigation ul li:hover .sub-menu ul li a:hover{
     color: lightgreen;
+}
+
+nav .mobile-nav {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .butn {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 /*---Home---*/
@@ -301,27 +333,40 @@ nav .navigation ul li:hover .sub-menu ul li a:hover{
     display: flex;
 }
 
-#home a{
+a.btn {
     text-decoration: none;
     font-size: 0.9rem;
-    padding: 13px 35px;
-    background-color: #fff;
+    padding: 10px 20px;
     font-weight: 600;
     border-radius: 5px;
-}
-
-#home a.red{
-    color: white;
-    background-color: lightgreen;
-    padding: 10px 20px;
-    text-decoration: none;
-    margin-right: 10px;
     transition: 0.5s
 }
 
-#home a.red:hover{
+a.red {
+    color: white;
+    background-color: lightgreen;
+}
+
+a.transparent {
+    color: #F9F9FF;
+    border: 1px solid #F9F9FF;
+    transition: all 0.5s ease;
+}
+
+.bgColorChange a.transparent {
+    color: #45474B;
+    border-color: #45474B;
+}
+
+a.red:hover {
     color: lightgreen;
     background-color: red;
+}
+
+a.transparent:hover {
+    color: lightgreen;
+    border-color: lightgreen;
+    box-shadow: 0 0 10px lightgreen;
 }
 
 #services{
@@ -758,51 +803,100 @@ footer .copyright .pro-links i:hover{
 
 
 
-@media (max-width: 769px){
+@media (max-width: 991px){
     nav {
         padding: 15px 20px;
+        justify-content: space-around;
     }
-    nav img{
+
+    nav img {
         width: 60px;
         cursor: pointer;
     }
-    #menu-btn{
+
+    #menu-btn {
         display: initial;
         color: white;
         font-size: 1.6rem;
-        padding: 30px 0 20px 20px;
     }
-    #menu-close{
+
+    .bgColorChange #menu-btn {
+        color: #45474B;
+    }
+
+    .bgColorChange .navigation ul li a {
+        color: #F9F9FF;
+    }
+
+    .bgColorChange .navigation .transparent {
+        color: #F9F9FF;
+        border-color: #F9F9FF;
+    }
+
+    #menu-close {
         display: initial;
         font-size: 1.6rem;
         color: white;
-        padding: 30px 0 20px 20px;
+        padding: 30px 0;
+        margin-left: 25px;
     }
-    nav .navigation ul{
+
+    #menu-btn:hover, #menu-close:hover {
+        color: lightgreen;
+        transition: 0.5s ease;
+    }
+
+    nav .navigation {
+        display: none;
+    }
+
+    nav .mobile-nav {
+        justify-content: flex-end;
+    }
+
+    nav .navigation.active {
         position: absolute;
         top: 0;
-        right: -220px;
-        width: 220px;
+        right: 0;
+        width: 100%;
+        max-width: 400px;
         height: 100vh;
         background: rgba(17, 20, 104, 0.45);
         backdrop-filter: blur(4.5px);
         border: 1px solid rgba(255, 255, 255, 0.18);
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         align-items: flex-start;
+        justify-content: flex-start;
         transition: 0.5s ease;
     }
-    nav .navigation ul.active{
-        right: 0;
+
+    nav .navigation ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
     }
-    nav .navigation ul li{
-        padding: 20px 0 20px 40px;
-        margin-left: 0;
+
+    nav .navigation ul li {
+        margin: 20px 25px;
+        width: max-content;
     }
-    nav .navigation ul li a{
-        color: white;
+
+    nav .navigation .butn {
+        width: 100%;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
+
+    nav .navigation .butn a {
+        display: block;
+        text-align: center;
+        width: 90%;
+    }
+
     #home{
         padding-top: 0px;
     }
