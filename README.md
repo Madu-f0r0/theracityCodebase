@@ -4,7 +4,7 @@
 ## Introduction
 TheraCity is a pharmaceutical solution that brings medicines and pharmacy stores closer to the user. The TheraCity app uses the user's location to display pharmacies closest to the user who have a searched medicine in their stock.
 
-Theracity is available online at [https://www.oganiru.tech/theracity](https://www.oganiru.tech/theracity)
+Theracity is available online at [https://theracity.pythonanywhere.com/theracity/](https://theracity.pythonanywhere.com/theracity/)
 
 ## The TheraCity Story
 The vision behind the TheraCity project is to create a one stop online mega pharmacy store which comprises of all the physical pharmacies in a location. We dreamt of an online location where a user could search for a medicine, learn more about the medication, make informed decisions about what brand to select, compare prices across pharmacies, and be able to make a purchase in one of the pharmacies closest to them. This purchase could then be delivered to the user in the comfort of their home.
